@@ -8,4 +8,16 @@ const redisConfig = {
 
 const redisConnection = new Redis(redisConfig);
 
+redisConnection.on('error', (err: any) => {
+  console.log(err)
+})
+
+redisConnection.on('ready', () => {
+  console.log('Redis client ready')
+})
+
+redisConnection.on('connect', () => {
+  console.log('Redis client connected')
+})
+
 export default redisConnection;

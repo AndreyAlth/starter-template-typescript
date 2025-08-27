@@ -1,24 +1,19 @@
-import { Queue, Worker, } from 'bullmq'
-import redisConnection from './redis-conection'
+import express from 'express'
+import Producer from './producer'
 
+const app = express()
+const PORT = process.env.PORT || 3000
 
+app.use(express.json())
 
-// const videoEncodingQueue = new Queue('video encoding', {
-//     connection: redisConnection
-// })
+const producer = new Producer('test')
 
-// const tasksQueue = new Queue('tasks', {
-//     connection: redisConnection
-// })
+app.post('/add-job', async (req, res) => {
+    const { name, data } = req.body
+    const job = await producer.addJob(name, data)
+    res.json({ msg: 'job added', job })
+})
 
-// videoEncodingQueue.add('video encoding', { videoId: 1 })
-// tasksQueue.add('tasks', { task: 'task', description: 'task to handle' })
-
-// console.log(videoEncodingQueue)
-
-
-const worker = new Worker('video encoding', async (job) => {
-    console.log(job)
-}, { connection: redisConnection })
-
-// worker.run()
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
