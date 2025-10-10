@@ -1,6 +1,7 @@
 {
-  "name": "string-to",
+  "name": "your-package-name",
   "version": "0.0.1",
+  "description": "A brief description of your package",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -9,15 +10,32 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "build": "tsc",
+    "build:watch": "tsc --watch",
     "start": "ts-node src/index.ts",
-    "dev": "node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "prepublishOnly": "npm run build && npm test",
+    "lint": "echo \"Add your linter here (e.g., eslint)\"",
+    "format": "echo \"Add your formatter here (e.g., prettier)\""
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "npm",
+    "package"
+  ],
   "author": "andreyalth",
   "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-package-name.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/your-package-name/issues"
+  },
+  "homepage": "https://github.com/yourusername/your-package-name#readme",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.3.0",
@@ -26,5 +44,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
