@@ -1,6 +1,6 @@
-# groupBy
+# Package Name
 
-A better function to group arrays of objects by a key. Simple, type-safe, and zero dependencies.
+[Description of the package]
 
 ## 🚀 Features
 
@@ -13,13 +13,13 @@ A better function to group arrays of objects by a key. Simple, type-safe, and ze
 ## 📦 Installation
 
 ```bash
-npm install group-by
+npm install [package-name]
 ```
 
 or
 
 ```bash
-yarn add group-by
+yarn add [package-name]
 ```
 
 ## 🔨 Usage
@@ -27,7 +27,7 @@ yarn add group-by
 ### Basic Usage
 
 ```typescript
-import { groupBy } from 'group-by';
+import { [function-name] } from '[package-name]';
 
 const users = [
   { name: 'Alice', role: 'admin' },
@@ -35,7 +35,7 @@ const users = [
   { name: 'Charlie', role: 'admin' }
 ];
 
-const grouped = groupBy(users, 'role');
+const grouped = [function-name](users, 'role');
 // Result:
 // Map {
 //   admin => [
