@@ -27,7 +27,7 @@ export function exampleFunction(input: string): string {
 }
 
 // Export all your public API here
-export * from './types';
+// export * from './types';
 
 // If running directly (for testing)
 if (require.main === module) {
